@@ -1,4 +1,4 @@
-import { EventSource } from 'falcon-system';
+import EventSource from './EventSource';
 
 export default class ArrayDataSource {
 	constructor(data, columns) {
