@@ -3,7 +3,6 @@ import Grid from './GridView';
 import { isEqual, debounce } from 'lodash';
 import DaoDataSource from './DaoDataSource';
 import { renderColumnHeaderContent } from './ViewServerGridColumnHeader';
-import GenericOperatorDaoContext from 'dao/GenericOperatorDaoContext';
 import Logger from './common/Logger';
 import { Dao }  from 'viewserver-dao-middleware';
 import { ScaleLoader } from 'react-spinners';
@@ -77,6 +76,10 @@ export default class ViewServerGrid extends Component {
     }
 
     async subscribeToData(newProps){
+        const {getDao} = newProps;
+        if(!getDao){
+            throw new Error('Factory for creating dao datasource must be specified');
+        }
         this.dao = this.dao || await this.getDao(newProps.daoName);
         
         this.disposables.push( this.dataSource.onDataRequested.subscribe(this.trackOperation));
@@ -128,13 +131,6 @@ export default class ViewServerGrid extends Component {
     componentWillUnmount(){
         Logger.info("Unmounting grid");
         this.disposables.forEach(dis => dis.unsubscribe())
-    }
-
-    async getDao(daoName){
-        const context = new GenericOperatorDaoContext(daoName, {});
-        const dao = new Dao(context, true);
-        this.dataSource = new DaoDataSource(dao);     
-        return dao; 
     }
 
     renderTitleText({column}){
