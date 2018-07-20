@@ -325,7 +325,6 @@ export default class GridView extends Component {
     }
 
     handleScroll() {
-        require('electron').webFrame.setZoomFactor(1)        
         this.setState({
             scrollLeft: -this.grid.viewPort.left
         });

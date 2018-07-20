@@ -53,8 +53,6 @@ function wrapDebug(name, original) {
 
 export default class Grid {
 	constructor(element, options) {
-		require('electron').webFrame.setZoomFactor(1)	
-		require('electron').webFrame.setZoomLevelLimits(1,1)	
 		this.element = element;
 		this._disposables = [];
 
@@ -978,7 +976,6 @@ export default class Grid {
 	}
 
 	_handleMouseWheelStart(e){
-		require('electron').webFrame.setZoomFactor(1)
 		this.blockSrolling = true;
 		this.refs.viewPort.scrollTop += e.deltaY > 0 ? 10 : -10;
 		e.preventDefault();

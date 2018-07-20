@@ -4,6 +4,7 @@
   "private": false,
   "dependencies": {
     "classnames": "^2.2.6",
+    "moment": "^2.22.2",
     "rxjs": "^5.5.2",
     "viewserver-dao-middleware": "git+http://github.com/GmeduoyeClaymore/viewserver-dao-middleware.git#master"
   }

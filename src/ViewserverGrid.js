@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import Grid from './GridView';
 import { isEqual, debounce } from 'lodash';
 import DaoDataSource from './DaoDataSource';
-import {DAO_REGISTRATION_CONTEXT} from 'custom-redux/DaoMiddleware'
 import { renderColumnHeaderContent } from './ViewServerGridColumnHeader';
 import GenericOperatorDaoContext from 'dao/GenericOperatorDaoContext';
 import Logger from './common/Logger';
