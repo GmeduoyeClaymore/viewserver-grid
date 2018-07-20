@@ -1,7 +1,7 @@
 import Point from './Point';
 import Rect from './Rect';
 import { numeric } from './Invariants';
-import { Rx } from 'common/rx';
+import Rx from 'rxjs/Rx';
 
 class Snapshot {
 	constructor(viewPort) {

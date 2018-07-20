@@ -1,4 +1,4 @@
-import {Rx} from 'common/rx'
+import Rx from 'rxjs/Rx';
 const fns = [function (es) {
     for (let i = 0, n = es.length; i < n; i++) {
         const e = es[i];

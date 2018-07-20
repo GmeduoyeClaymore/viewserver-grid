@@ -7,7 +7,7 @@ import RowMetrics from './RowMetrics';
 import * as dom  from './Dom';
 import DirtyRangeManager from './DirtyRangeManager';
 import RenderScheduler from './RenderScheduler';
-import {Rx} from 'common/rx'
+import Rx from 'rxjs/Rx'
 import CanvasDrawing from './CanvasDrawing';
 import tooltipBehavior from './tooltipBehavior';
 import StyleSheet from './StyleSheet';

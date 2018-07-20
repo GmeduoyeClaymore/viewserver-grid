@@ -1,4 +1,4 @@
-import { Rx } from 'common/rx';
+import Rx from 'rxjs/Rx';
 import * as keyboard from './keyboard';
 
 function min(x, y) {

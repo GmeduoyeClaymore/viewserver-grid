@@ -1,5 +1,5 @@
-import {Rx} from 'common/rx';
-import * as RxConstants from 'common/rx';
+import Rx from 'rxjs/Rx';
+import * as RxConstants from './common/rx';
 import Logger from 'common/Logger';
 import {debounce} from 'lodash';
 
