@@ -1,1 +1,1 @@
-module.exports.ViewserverGrid = require('./src/ViewserverGrid');
+module.exports.ViewServerGrid = require('./src/ViewServerGrid');

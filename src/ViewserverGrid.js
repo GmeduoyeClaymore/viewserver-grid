@@ -5,10 +5,10 @@ import DaoDataSource from './DaoDataSource';
 import {DAO_REGISTRATION_CONTEXT} from 'custom-redux/DaoMiddleware'
 import { renderColumnHeaderContent } from './ViewServerGridColumnHeader';
 import GenericOperatorDaoContext from 'dao/GenericOperatorDaoContext';
-import Logger from 'common/Logger';
+import Logger from './common/Logger';
 import { Dao }  from 'viewserver-dao-middleware';
 import { ScaleLoader } from 'react-spinners';
-import ErrorRegion from 'common-components/ErrorRegion';
+import ErrorRegion from './common/ErrorRegion';
 import moment from 'moment';
 
 const CONTAINER_STYLE = { display: 'flex', flexDirection: 'column', flex: '1', overflow: 'hidden' };
