@@ -1,1 +1,1 @@
-module.exports.ViewServerGrid = require('./src/ViewServerGrid');
+export {default as ViewServerGrid} from './src/ViewServerGrid'
