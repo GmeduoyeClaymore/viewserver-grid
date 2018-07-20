@@ -77,11 +77,11 @@ export default class ViewServerGrid extends Component {
     }
 
     async subscribeToData(newProps){
-        const {getDao} = newProps;
-        if(!getDao){
+        const {getDataSource} = newProps;
+        if(!getDataSource){
             throw new Error('Factory for creating dao datasource must be specified');
         }
-        this.dao = this.dao || await this.getDao(newProps.daoName);
+        this.dataSource = this.dataSource || await getDataSource(newProps.daoName);
         
         this.disposables.push( this.dataSource.onDataRequested.subscribe(this.trackOperation));
         this.disposables.push( this.dataSource.columnsChanged.debounceTime(50).subscribe(this.setColumns.bind(this)));
