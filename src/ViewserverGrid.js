@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Grid from './GridView';
 import { isEqual, debounce } from 'lodash';
 import DaoDataSource from './DaoDataSource';
