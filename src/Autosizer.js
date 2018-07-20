@@ -43,9 +43,9 @@ function removeListener(listener) {
 export default class Autosizer extends Component {
     static propTypes = {
         onResize: PropTypes.func.isRequired,
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.arrayOf(React.PropTypes.node),
-            React.PropTypes.node
+        children: PropTypes.oneOfType([
+            PropTypes.arrayOf(PropTypes.node),
+            PropTypes.node
         ])
     }
 
