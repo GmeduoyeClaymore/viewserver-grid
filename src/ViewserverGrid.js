@@ -145,6 +145,7 @@ export default class ViewServerGrid extends Component {
     render() {
         let baselineHeight = ROW_HEIGHT + 2;
         const {busy, summary ={}, elapsed, errors} = this.state;
+        const {displaySummary} = this.props;
         const {dataSource } = this;
         if(errors){
             return <ErrorRegion errors={errors}/>;
@@ -153,7 +154,7 @@ export default class ViewServerGrid extends Component {
             return <div>Awaiting registration of data source</div>;
         }
         return <div style={{position : 'relative'}} className="flex flex-col">
-                <div>{`${elapsed ? "Last Operation Took:" + elapsed.asSeconds() + " secs " : "" } Operator size is ${summary.size}. Options are ${JSON.stringify(summary.options)}`}</div>
+                {displaySummary ? <div>{`${elapsed ? "Last Operation Took:" + elapsed.asSeconds() + " secs " : "" } Operator size is ${summary.size}. Options are ${JSON.stringify(summary.options)}`}</div> : null}
                 {busy ? <div style={{position : 'absolute', ...MODAL_STYLE}}><div style={{position : 'absolute', top : '50%', left: '50%', height: 400, width: 500}}><ScaleLoader size={50}/></div></div> : null}
                 <div ref={grid => {this.gridContainer = grid}} className="flex flex-col">
                 {this.gridContainer ? 

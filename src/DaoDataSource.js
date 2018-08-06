@@ -41,7 +41,9 @@ export default class DaoDataSource{
             case RxConstants.ROW_REMOVED:
                 if(!this.pendingSnapshotComplete){
                     const rowIndex = this.dao.dataSink._getRowIndex(evt.rowId);
-                    this.onChanged.next({rowStart : rowIndex ,rowEnd : rowIndex  + 1,colStart : undefined,colEnd : undefined})
+                    if(!!~rowIndex){
+                        this.onChanged.next({rowStart : rowIndex ,rowEnd : rowIndex  + 1,colStart : undefined,colEnd : undefined})
+                    }
                 }
             case RxConstants.COLUMN_REMOVED:
             case RxConstants.COLUMN_ADDED:
