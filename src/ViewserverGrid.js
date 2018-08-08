@@ -21,7 +21,7 @@ const MODAL_STYLE = {
     backgroundColor: 'rgb(0,0,0)', /* Fallback color */
     backgroundColor: 'rgba(255,255,255,0.4)' /* Black w/ opacity */
 }
-const ROW_HEIGHT = 12;
+const ROW_HEIGHT = 30;
 
 export default class ViewServerGrid extends Component {
     static propTypes = {
@@ -54,7 +54,7 @@ export default class ViewServerGrid extends Component {
         this.disposables = [];
         this.renderCellHeaderProps = {
             onColumnStyleUpdated: this.handleColumnStyleUpdated,
-            showFilter: true,
+            showFilter: false,
             filters: false,
             onFilterChange: this.handleInlineFilterChange
         }
