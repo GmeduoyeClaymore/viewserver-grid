@@ -482,7 +482,7 @@ export default class Grid {
 
 		// bind refs
 		const { viewPort, grid, canvas } = this.refs = dom.bindElements(this.element, {
-			grid: '.canv-grid',
+			git: '.canv-grid',
 			canvas: '.canv-grid__canvas',
 			viewPort: '.canv-grid__scroll',
 			viewPortContent: '.canv-grid__scroll__content',
@@ -568,9 +568,9 @@ export default class Grid {
 		else if(x.dispose){
 			x.dispose()
 		}
-		else{
+		/*else{
 			console.error("Unable to get rid of element " + x);
-		}
+		}*/
 	}
 
 	_getColumn(columnIndex) {
