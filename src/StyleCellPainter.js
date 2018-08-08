@@ -3,10 +3,10 @@ import { Style, StyleCache } from './styles';
 
 export const DEFAULT_STYLE = Style.create({
     fontFamily: "'Open Sans'",
-	fontSize: 9,
+	fontSize: 12,
 	borderRightWidth: 1,
 	borderBottomWidth: 1,
-	borderColor: 'white',
+	borderColor: '#9b9da0',
 	color: 'black',
 	marginLeft: 6,
 	marginRight: 6

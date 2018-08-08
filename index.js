@@ -1,5 +1,6 @@
 export {default as ViewServerGrid} from './src/ViewServerGrid'
 export {default as DaoDataSource} from './src/DaoDataSource'
 export {default as StyleCellPainter} from './src/StyleCellPainter'
+export {default as StyleCache} from './src/StyleCache'
 export * from './src/styles'
 export * from './src/colors'
