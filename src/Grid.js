@@ -569,7 +569,7 @@ export default class Grid {
 			x.dispose()
 		}
 		else{
-			console.error("Unable to get rid of element " + x);
+			//console.error("Unable to get rid of element " + x);
 		}
 	}
 
