@@ -9,6 +9,7 @@ import { Dao }  from 'viewserver-dao-middleware';
 import { ScaleLoader } from 'react-spinners';
 import ErrorRegion from './common/ErrorRegion';
 import moment from 'moment';
+import ContextMenu from './ContextMenu';
 
 const CONTAINER_STYLE = { display: 'flex', flexDirection: 'column', flex: '1', overflow: 'hidden' };
 const MODAL_STYLE = {
@@ -174,6 +175,7 @@ export default class ViewServerGrid extends Component {
                 renderHeaderCell={renderColumnHeaderContent}
                 renderHeaderCellProps={this.renderCellHeaderProps}
             ></Grid> : null }</div>
+            <ContextMenu ref={menu => {this.contextMenu = menu}}/>
         </div>;
     }
 
@@ -181,7 +183,10 @@ export default class ViewServerGrid extends Component {
         //this.setState({busy : true});
     }
 
-    handleContextMenu(){
+    handleContextMenu(ev){
+        if(this.contextMenu ){
+            this.contextMenu.showContextMenu(0,0);
+        }
     }
 
     handleColumnHeaderContextMenu(){
