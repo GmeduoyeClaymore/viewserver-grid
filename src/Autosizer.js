@@ -70,7 +70,7 @@ export default class Autosizer extends Component {
                 this._clientWidth = element.clientWidth;
                 const { onResize } = this.props;
                 if (onResize) {
-                    onResize();
+                    onResize({height: this._clientHeight, width: this._clientWidth});
                 }
             }
         }
