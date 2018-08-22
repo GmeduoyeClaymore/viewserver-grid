@@ -39,8 +39,8 @@ export default class StyleCellPainter {
 
 	paintContent(ctx, style, bounds) {
 		const { paint, column, row } = ctx;
-		let text = column.getFormattedValue(row) || null;
-    	if (text) {
+		const text = column.getFormattedValue(row);
+    	if (typeof text !== 'undefined') {
     		paint.beginPaint(1);
     		bounds = this.applyMargin(bounds, style);
     		if (style.textAlign !== 'start') {
