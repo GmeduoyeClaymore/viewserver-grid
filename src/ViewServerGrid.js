@@ -142,6 +142,13 @@ export default class ViewServerGrid extends Component {
         this.grid.scrollRowIntoView(index);
     }
 
+    updateLayout(){
+        const {grid} = this;
+        if(grid){
+            grid.updateLayout();
+        }
+    }
+
     render() {
         let baselineHeight = ROW_HEIGHT + 2;
         const {busy, summary ={}, elapsed, errors} = this.state;
