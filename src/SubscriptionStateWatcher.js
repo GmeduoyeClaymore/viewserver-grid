@@ -13,8 +13,8 @@ export default class SubscriptionStateWatcher{
       if(status){
         const {dataRequestBusy, dataRequestBusyStartTime, busy , dbBusy} = this.state;
         if(busy && dataRequestBusyStartTime){
-          const duration = moment.duration(dataRequestBusyStartTime.diff(moment())).humanize();;
-          this.setState({busy: true, dataRequestBusy: true,  busyMessage: `Waiting for server to respond to data request ${duration}`})
+          const duration = moment.duration(dataRequestBusyStartTime.diff(moment())).asSeconds();;
+          this.setState({busy: true, dataRequestBusy: true,  busyMessage: `Waiting for server to respond to data request ${duration} seconds`})
         }else{
           this.setState({busy: true, dataRequestBusy: true,  busyMessage: "Waiting for server to respond to data request ", dataRequestBusyStartTime: moment()})
         }
@@ -30,8 +30,8 @@ export default class SubscriptionStateWatcher{
       if(event.Type === RxDataSink.DATA_ERROR){
         const {dbBusy, dbBusyStartTime, busy} = this.state;
         if(busy && dbBusyStartTime){
-          const duration = moment.duration(dbBusyStartTime.diff(moment())).humanize();;
-          this.setState({busy: true, dbBusy: true,  busyMessage: `Waiting for data to load from database ${duration}`})
+          const duration = moment.duration(dbBusyStartTime.diff(moment())).asSeconds();;
+          this.setState({busy: true, dbBusy: true,  busyMessage: `Waiting for data to load from database ${duration} seconds`})
         }else{
           this.setState({busy: true, dbBusy: true,  busyMessage: "Waiting for data to load from database", dbBusyStartTime: moment()})
         }
