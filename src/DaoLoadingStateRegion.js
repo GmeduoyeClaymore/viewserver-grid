@@ -29,7 +29,7 @@ export default class DaoLoadingStateRegion extends Component {
 
     
   
-   return <div className={className} style={{flexDirection: 'column',  flex: 1, padding: 0, position: 'relative',...style}}>
+   return <div className={className + ` ${busy ? 'busy_region' : ''}`} style={{flexDirection: 'column',  flex: 1, padding: 0, position: 'relative',...style}}>
           {busy ?<div style={{position: 'absolute', top: '50%', left: '50%', zIndex: 10,  ...loaderContainerStyle}}>
                 <ScaleLoader sizeUnit={"%"} height={height} width={width} heightUnit="px"  widthUnit="px"/>
                 <span>{busyMessage}</span>
