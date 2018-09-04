@@ -14,7 +14,7 @@ export default class SubscriptionStateWatcher{
         const {dataRequestBusy, dataRequestBusyStartTime, busy} = this.state;
         if(busy && dataRequestBusyStartTime){
           const duration = moment.duration(dataRequestBusyStartTime.diff(moment())).humanize();;
-          this.setState({busy: true, dataRequestBusy: true,  busyMessage: `Waiting for server to respond to data request ${duration}`, dataRequestBusyStartTime: moment()})
+          this.setState({busy: true, dataRequestBusy: true,  busyMessage: `Waiting for server to respond to data request ${duration}`})
         }else{
           this.setState({busy: true, dataRequestBusy: true,  busyMessage: "Waiting for server to respond to data request ", dataRequestBusyStartTime: moment()})
         }
@@ -28,7 +28,7 @@ export default class SubscriptionStateWatcher{
         const {dbBusy, dbBusyStartTime, busy} = this.state;
         if(busy && dbBusyStartTime){
           const duration = moment.duration(dbBusyStartTime.diff(moment())).humanize();;
-          this.setState({busy: true, dbBusy: true,  busyMessage: `Waiting for data to load from database ${duration}`, dbBusyStartTime: moment()})
+          this.setState({busy: true, dbBusy: true,  busyMessage: `Waiting for data to load from database ${duration}`})
         }else{
           this.setState({busy: true, dbBusy: true,  busyMessage: "Waiting for data to load from database", dbBusyStartTime: moment()})
         }
