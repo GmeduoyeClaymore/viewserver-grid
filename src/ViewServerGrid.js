@@ -9,6 +9,7 @@ import { Dao }  from 'viewserver-dao-middleware';
 import { ScaleLoader } from 'react-spinners';
 import ErrorRegion from './common/ErrorRegion';
 import moment from 'moment';
+import DaoLoadingStateRegion from './DaoLoadingStateRegion'
 
 const CONTAINER_STYLE = { display: 'flex', flexDirection: 'column', flex: '1', overflow: 'hidden' };
 const MODAL_STYLE = {
@@ -160,9 +161,7 @@ export default class ViewServerGrid extends Component {
         if(!dataSource){
             return <div>Awaiting registration of data source</div>;
         }
-        return <div style={{position : 'relative'}} className="flex flex-col">
-                {displaySummary ? <div>{`${elapsed ? "Last Operation Took:" + elapsed.asSeconds() + " secs " : "" } Operator size is ${summary.size}. Options are ${JSON.stringify(summary.options)}`}</div> : null}
-                {busy ? <div style={{position : 'absolute', ...MODAL_STYLE}}><div style={{position : 'absolute', top : '50%', left: '50%', height: 400, width: 500}}><ScaleLoader size={50}/></div></div> : null}
+        return <DaoLoadingStateRegion onLoadingStateChanged={this.loadingStateChanged} className="flex flex-col" dao={dataSource}>
                 <div ref={grid => {this.gridContainer = grid}} className="flex flex-col">
                 {this.gridContainer ? 
                 <Grid ref={ grid => {this.grid = grid}}
@@ -181,7 +180,7 @@ export default class ViewServerGrid extends Component {
                 renderHeaderCell={renderColumnHeaderContent}
                 renderHeaderCellProps={this.renderCellHeaderProps}
             ></Grid> : null }</div>
-        </div>;
+        </DaoLoadingStateRegion>;
     }
 
     handleScrollStarted(){

@@ -121,6 +121,14 @@ export default class DaoDataSource{
         return this.dao.dataSink || {};
     }
 
+    get rawDataObservable(){
+        return this.dao.rawDataObservable;
+    }
+
+    get dataRequestedObservable(){
+        return this.dao.dataRequestedObservable;
+    }
+
     get(index){
         return this.dataSink.rows.find(r => r.rank === index);
     }
