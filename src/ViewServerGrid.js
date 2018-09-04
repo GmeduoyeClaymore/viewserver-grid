@@ -161,7 +161,7 @@ export default class ViewServerGrid extends Component {
         if(!dataSource){
             return <div>Awaiting registration of data source</div>;
         }
-        return <DaoLoadingStateRegion hideContentOnLoading={true} onLoadingStateChanged={this.loadingStateChanged} className="flex flex-col" dao={dataSource}>
+        return <DaoLoadingStateRegion onLoadingStateChanged={this.loadingStateChanged} className="flex flex-col" dao={dataSource}>
                 <div ref={grid => {this.gridContainer = grid}} className="flex flex-col">
                 {this.gridContainer ? 
                 <Grid ref={ grid => {this.grid = grid}}
