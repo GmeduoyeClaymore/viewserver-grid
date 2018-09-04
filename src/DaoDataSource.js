@@ -105,7 +105,7 @@ export default class DaoDataSource{
         return result;
     }
 
-    async updateSubscription(options){
+    async updateSubscription(options = {}){
         try{
             this.onDataRequested.next(true)
             await this.dao.updateSubscription({...options,columnsToSort : options.columnsToSort || this.getViewServerColumnSorting()});
