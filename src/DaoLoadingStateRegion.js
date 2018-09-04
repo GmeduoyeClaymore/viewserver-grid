@@ -26,8 +26,10 @@ export default class DaoLoadingStateRegion extends Component {
   render() {
     const {height = 30, width = 30, style = {}, loaderContainerStyle = {}, hideContentOnLoading, children = null, className} = this.props;
     const {busy, busyMessage} = this.state;
+
+    
   
-   return <div className={className} style={{flexDirection: 'column', zIndex: 10,  flex: 1, padding: 0, position: 'relative',...style}}>
+   return <div className={className} style={{flexDirection: 'column',  flex: 1, padding: 0, position: 'relative',...style}}>
           {busy ?<div style={{position: 'absolute', top: '50%', left: '50%', ...loaderContainerStyle}}>
                 <ScaleLoader sizeUnit={"%"} height={height} width={width} heightUnit="px"  widthUnit="px"/>
                 <span>{busyMessage}</span>
