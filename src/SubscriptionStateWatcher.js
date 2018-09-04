@@ -1,8 +1,8 @@
 import {RxDataSink} from 'viewserver-dao-middleware';
 import moment from 'moment';
 export default class SubscriptionStateWatcher{
-    constructor(dao, setState){
-        this.setState = setState;
+    constructor(dao, setStateFunc){
+        this.setStateFunc = setStateFunc;
         dao.rawDataObservable.subscribe(this.observeLoadingStatusChanges);
         dao.dataRequestedObservable.subscribe(this.observeDataRequest);
         this.state = {
@@ -36,6 +36,12 @@ export default class SubscriptionStateWatcher{
       else if(event.Type === RxDataSink.DATA_ERROR_CLEARED){
         this.setState({busy: false,dbBusy: false, dbBusyStartTime: undefined, busyMessage: "Finished loading data from database"})
       }
+    }
+
+    setState(partialState){
+      const {state, setStateFunc} = this;
+      this.state = {...state, ...partialState};
+      setStateFunc(this.state);
     }
   }
   
