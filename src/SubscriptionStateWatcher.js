@@ -38,7 +38,7 @@ export default class SubscriptionStateWatcher{
       }
     }
 
-    setState(partialState){
+    setState = (partialState) => {
       const {state, setStateFunc} = this;
       this.state = {...state, ...partialState};
       setStateFunc(this.state);
