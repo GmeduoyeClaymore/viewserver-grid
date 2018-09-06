@@ -19,7 +19,7 @@ export default class DaoDataSource{
         this.updateSubscription = this.updateSubscription.bind(this);
     }
 
-    static DIRECTION_CYCLE=['asc','desc',undefined];
+    static DIRECTION_CYCLE=['desc','asc',undefined];
   
     handleDataSinkUpdate(evt){
         switch(evt.Type) {
