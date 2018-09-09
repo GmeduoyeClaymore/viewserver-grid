@@ -153,7 +153,7 @@ export default class ViewServerGrid extends Component {
     render() {
         let baselineHeight = ROW_HEIGHT + 2;
         const {busy, summary ={}, elapsed, errors} = this.state;
-        const {displaySummary} = this.props;
+        const {displaySummary, onLoadingStateChanged} = this.props;
         const {dataSource } = this;
         if(errors){
             return <ErrorRegion errors={errors}/>;
@@ -161,7 +161,7 @@ export default class ViewServerGrid extends Component {
         if(!dataSource){
             return <div>Awaiting registration of data source</div>;
         }
-        return <DaoLoadingStateRegion onLoadingStateChanged={this.loadingStateChanged} className="flex flex-col" dao={dataSource}>
+        return <DaoLoadingStateRegion onLoadingStateChanged={onLoadingStateChanged} className="flex flex-col" dao={dataSource}>
                 <div ref={grid => {this.gridContainer = grid}} className="flex flex-col">
                 {this.gridContainer ? 
                 <Grid ref={ grid => {this.grid = grid}}
