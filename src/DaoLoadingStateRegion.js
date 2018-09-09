@@ -24,8 +24,9 @@ export default class DaoLoadingStateRegion extends Component {
   }
 
   render() {
-    const {height = 30, width = 30, style = {}, loaderContainerStyle = {}, hideContentOnLoading, children = null, className, collapseRegion} = this.props;
-    const {busy, busyMessage} = this.state;
+    const {height = 30, width = 30, style = {}, loaderContainerStyle = {}, hideContentOnLoading, children = null, className, collapseRegion, loadingMessageFormatter} = this.props;
+    let {busy, busyMessage} = this.state;
+    busyMessage = loadingMessageFormatter ? loadingMessageFormatter(this.state) : busyMessage;
     if(!busy && collapseRegion){
       return children;
     }    
